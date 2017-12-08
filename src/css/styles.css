@@ -1,10 +1,2 @@
-// Global Resets
-
-// Bootstrap 4 comes with Reboot.css so no resets should be needed
-
-// Global Styles
-
-
-
-// Custom Styles
-
+body {
+  background: pink; }

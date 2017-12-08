@@ -1,6 +1,6 @@
-# Gulp with Sass, JS, Font Awesome, and live server
+# Gulp Live Reload Dev Environment
 
-Run gulp to compile sass to css, load js and font awesome, and live reload via browserSync
+Live Reload via Gulp for SASS, JS, and server via browser sync
 
 ### Version
 
@@ -14,13 +14,21 @@ npm install
 
 ## Compile Sass & Run Dev Server
 
+1 word: gulp
+
 ```bash
-npm start
+gulp
 ```
 OR
 
 ```bash
-gulp
+npm start
+```
+
+## Bulid to dist from src
+
+```bash
+gulp build
 ```
 
 Files are compiled into /src folder

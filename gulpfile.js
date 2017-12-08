@@ -1,8 +1,15 @@
 // Require Gulp, Sass, and browser-sync
 
 const gulp        = require('gulp');
-const browserSync = require('browser-sync').create();
 const sass        = require('gulp-sass');
+const browserSync = require('browser-sync').create();
+
+// Build dist from src
+
+gulp.task('build', function() {
+    return gulp.src(["src/**"])
+        .pipe(gulp.dest("dist"));
+});
 
 // Compile Sass & Inject Into Browser
 
@@ -21,17 +28,18 @@ gulp.task('js', function() {
         .pipe(browserSync.stream());
 });
 
-// Watch Sass & Serve
+// Watch Sass, JS && Serve
 
 gulp.task('serve', ['sass'], function() {
 
     browserSync.init({
         server: "./src",
-        port: 8082     // Change port as needed, 8082 is for Cloud 9 workspaces
+        port: 8082     // Change port as needed, 8082 is for Cloud 9 workspace
     });
 
     gulp.watch(['src/scss/*.scss'], ['sass']);
     gulp.watch("src/*.html").on('change', browserSync.reload);
+    gulp.watch("src/js/*.js").on('change', browserSync.reload);
 });
 
 // Move Fonts to src/fonts
@@ -51,3 +59,5 @@ gulp.task('fa', function() {
 // Gulp default tasks
 
 gulp.task('default', ['sass', 'js','serve', 'fa', 'fonts']);
+
+
