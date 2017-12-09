@@ -1,22 +1,24 @@
 {
-  "name": "bs4starterupdated",
+  "name": "gulplive",
   "version": "1.0.1",
-  "description": "Bootstrap 4 starter workflow",
-  "main": "index.js",
+  "description": "Gulp Live Reload Dev Environment",
+  "main": "main.js",
   "scripts": {
     "start": "gulp"
   },
   "author": "Jeremy Bratcher",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "4.0.0-beta.2",
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1",
-    "popper.js": "^1.11.1"
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-cache": "^1.0.1",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.3"
   }
 }

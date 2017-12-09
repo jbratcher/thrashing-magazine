@@ -1,18 +1,28 @@
 <!DOCTYPE html>
+
 <html class="no-js" lang="en">
+    
     <head>
+        
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/styles.css">
         <title>Gulp Live Reload Dev Environment</title>
+        <link rel="preload" href="css/font-awesome.min.css">
+        <!--build:css css/styles.min.css-->
+        <link rel="preload" href="css/styles.css">
+        <!--endbuild-->
+        
     </head>
 
     <body>
         
         <h1>Gulp Live Reload Dev Environment</h1>
-
-        <script src="js/main.js"></script>
+        
+    <!--build:js js/main.min.js -->
+    <script async src="js/main.js"></script>
+    <script async src="js/index.js"></script>
+    <!-- endbuild -->
 
     </body>
+    
 </html>
