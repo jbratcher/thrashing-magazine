@@ -1,5 +1,175 @@
-// Main Sass File
-
-body {
-    background: pink;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+html, body {
+    background: #fefefe;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: #000;
+    font-size: 1.5rem;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: all 300ms ease-out;
+}
+
+a:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+// Header
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    padding: 1rem;
+    
+    ul {
+    display: flex;
+    list-style-type: none;
+    }
+    
+    li {
+        padding: 0 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+}
+
+// Main
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    
+    aside, section {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    
+        h3 {
+            padding: 1rem 0.5rem;
+        }
+    
+    
+        ul {
+            padding: 1rem 0.5rem;
+            flex-direction: column;
+            
+                li {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 80%;
+                
+                h4 {
+                    font-size: 1.33rem;
+                    padding-bottom: 0.5rem;
+                }
+                
+                img {
+                    padding-bottom: 0.5rem;
+                }
+                
+                span {
+                    padding-bottom: 0.5rem;
+                }
+                
+                p {
+                    padding-bottom: 1rem;
+                }
+                
+                a {
+                    font-size: 1rem;
+                    padding-bottom: 2rem;
+                }
+                
+            }
+        }
+        
+    }
+    
+    section {
+        align-items: center;
+        
+        h2 {
+            padding-right: 4rem;
+        }
+        
+    }
+}
+
+// Footer
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    background: #eee;
+    
+    section p {
+        padding: 0.5rem 0;
+    }
+    
+    .form-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 4rem;
+    }
+    
+    .form-wrapper h5 {
+        font-size: 1rem;
+    }
+        
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        
+        input, textarea {
+            padding: 0.33rem;
+        }
+        
+        input, textarea, a {
+            margin: 0.33rem 0;
+        }
+        
+        a {
+            text-align: center;
+            background: #fff;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            border: 0.0625rem solid black;
+            border-radius: 0.3rem;
+            
+        }
+        
+    }
+    
+    nav {
+        
+        ul li a{
+            font-size: 1rem;
+        }
+        
+        ul li {
+            padding: 0.33rem 0;
+        }
+        
+    }
+
+}
+
