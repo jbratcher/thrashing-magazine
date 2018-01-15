@@ -1,6 +1,9 @@
-// Require Gulp, Sass, and browser-sync
+// Require dependencies
+// Gulp, BrowserSync, SASS, useref with gulpif to bundle and minify CSS adn JS, CSS autoprefixer, Imagemin to optimize images, cache to reduce reload, del to remove(clean) the dist directory
 
 const gulp          = require('gulp');
+const pump          = require('pump');
+const browserSync   = require('browser-sync').create();
 const sass          = require('gulp-sass');
 const useref        = require('gulp-useref');
 const uglify        = require('gulp-uglify');
@@ -8,87 +11,109 @@ const gulpIf        = require('gulp-if');
 const cssnano       = require('gulp-cssnano');
 const imagemin      = require('gulp-imagemin');
 const cache         = require('gulp-cache');
+const autoprefixer  = require('gulp-autoprefixer');
+const babel         = require('gulp-babel');
 const del           = require('del');
-const browserSync   = require('browser-sync').create();
 
-// Build dist from src
+// Move vendor files from node modules to src folders
 
-gulp.task('build:dist', function() {
-    return gulp.src(["src/**"])
-        .pipe(gulp.dest("dist"));
-});
+// Move Fonts (font awesome) to src/fonts
 
-// Clean Dist foler
+gulp.task('fonts', () =>
+  gulp.src('node_modules/font-awesome/fonts/*')
+    .pipe(gulp.dest('src/fonts'))
+);
 
-gulp.task('clean:dist', function() {
-  return del.sync('dist');
-});
+// Move Font Awesome Icons CSS to src/css/vendor
 
-// Build JS, CSS and minify
+gulp.task('fa', () =>
+  gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
+    .pipe(gulp.dest('src/css/vendor'))
+);
 
-gulp.task('useref', function(){
-  return gulp.src('src/*.html')
-    .pipe(useref())
-    .pipe(gulp.dest('dist'))
-    .pipe(gulpIf('*.js', uglify()))
-    .pipe(gulp.dest('dist'))
-    .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('dist'));
-});
+// Compile Sass & Inject Into Browser (Watched)
 
-// Optimize Images and cache
+gulp.task('sass', () =>
+  gulp.src('src/scss/*.scss')
+      .pipe(sass())
+      .pipe(gulp.dest("src/css"))
+      .pipe(browserSync.stream())
+);
 
-gulp.task('img', function(){
-  return gulp.src('src/img/*.+(png|jpg|jpeg|gif|svg)')
+// Add vendor prefixes to src CSS and move to dist
+
+gulp.task('autoprefix', () =>
+    gulp.src('src/css/*.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('dist/css'))
+);
+
+// Compile ES6 to ES5 with Babel
+
+gulp.task('compilejs', () =>
+    gulp.src('src/js/*.js')
+        .pipe(babel({
+            presets: ['env']
+        }))
+        .pipe(gulp.dest('dist/js'))
+);
+
+// Optimize Images and cache (Watched)
+
+gulp.task('img', () =>
+  gulp.src('src/img/*.+(png|jpg|jpeg|gif|svg)')
     .pipe(cache(imagemin({
           interlaced: true
         })))
-  .pipe(gulp.dest('dist/images'));
-});
+  .pipe(gulp.dest('dist/images'))
+);
 
+// Live Reload function
 
-// Compile Sass & Inject Into Browser
+// Serve and Watch src files
 
-gulp.task('sass', function() {
-    return gulp.src(['src/scss/*.scss'])
-        .pipe(sass())
-        .pipe(gulp.dest("src/css"))
-        .pipe(browserSync.stream());
-});
-
-// Watch Sass, JS && Serve
-
-gulp.task('serve', ['sass'], function() {
-
-    browserSync.init({
-        server: "./src",
-        port: 8082     // Change port as needed, 8082 is for Cloud 9 workspace
-    });
-
-    gulp.watch(['src/scss/*.scss'], ['sass']);
-    gulp.watch("src/*.html").on('change', browserSync.reload);
+gulp.task('browserSync', gulp.parallel('sass', function() {
+  browserSync.init({
+      server: "./src",
+      port: 8082     // Change port as needed, 8082 is for Cloud 9 workspace
+}),
+    gulp.watch("src/scss/*.scss", gulp.parallel('sass')),
+    gulp.watch("src/*.html").on('change', browserSync.reload),
     gulp.watch("src/js/*.js").on('change', browserSync.reload);
-});
+}));
 
-// Move Static Files from node modules to src folders
+// Bundle JS,CSS and minify
 
-// Move Fonts to src/fonts
+gulp.task('useref', () =>
+  gulp.src('dist/*.html')
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulpIf('*.css', cssnano()))
+    .pipe(gulp.dest('dist'))
+);
 
-gulp.task('fonts', function() {
-  return gulp.src('node_modules/font-awesome/fonts/*')
-    .pipe(gulp.dest('src/fonts'));
-});
+// Move src files to dist
 
-// Move Font Awesome CSS to src/css
+gulp.task('build:dist', () =>
+    gulp.src(["src/**"])
+        .pipe(gulp.dest("dist"))
+);
 
-gulp.task('fa', function() {
-  return gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
-    .pipe(gulp.dest('src/css'));
-});
+// Clean Dist folder
+
+gulp.task('clean:dist', () =>
+  del('dist')
+);
+
+gulp.task('clean:files', () =>
+  del(['dist/css/styles.css', 'dist/css/font-awesome.min.css', 'dist/js/index.js','dist/js/main.js'])
+);
 
 // Gulp default tasks
 
-gulp.task('default', ['useref', 'serve', 'sass', 'fonts', 'fa', 'img']);
+gulp.task('default', gulp.parallel('sass', 'fonts', 'fa', 'img', 'browserSync'));
 
-gulp.task('build', ['clean:dist', 'build:dist', 'useref', 'serve', 'sass', 'fonts', 'fa', 'img']);
-
+gulp.task('build', gulp.series('clean:dist', 'build:dist', 'sass', 'fonts', 'fa', 'img', 'autoprefix', 'compilejs', 'useref', 'clean:files'));
