@@ -34,8 +34,8 @@ header {
     padding: 1rem;
     
     ul {
-    display: flex;
-    list-style-type: none;
+        display: flex;
+        list-style-type: none;
     }
     
     li {
@@ -55,24 +55,25 @@ main {
     grid-template-columns: 1fr 3fr 1fr;
     
     aside, section {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
     
         h3 {
-            padding: 1rem 0.5rem;
+            padding: 1rem 0;
         }
     
     
         ul {
-            padding: 1rem 0.5rem;
+            padding: 1rem 0;
             flex-direction: column;
+            align-items: center;
             
             li {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
-                width: 80%;
+                align-items: center;
             
                 h4 {
                     font-size: 1.33rem;
@@ -80,7 +81,8 @@ main {
                 }
                 
                 img {
-                    padding-bottom: 0.5rem;
+                    width: 100%;
+                    padding: 1rem;
                 }
                 
                 span {
@@ -99,16 +101,17 @@ main {
             }
         }
         
-    }
-    
-    section {
-        align-items: center;
+        .flex-start > * {
+            align-self: flex-start;
+            padding: 0 1rem;
+        }
         
-        h2 {
-            padding-right: 4rem;
+        .flex-start p {
+            padding: 1rem;
         }
         
     }
+    
 }
 
 // Footer
@@ -202,3 +205,32 @@ footer {
     
 }
 
+// Media Queries
+
+@media (max-width: 75rem) {
+    
+    #left {
+        order: -1
+    }
+    
+    #center {
+        order: 0;
+    }
+    
+    #right {
+        order: 1;
+    }
+        
+}
+
+// @media (max-width: 62rem) {
+    
+// }
+
+// @media (max-width: 48rem) {
+    
+// }
+
+// @media (max-width: 36rem) {
+    
+// }

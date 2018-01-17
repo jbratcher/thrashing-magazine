@@ -39,22 +39,24 @@ main {
   main aside, main section {
     display: flex;
     flex-direction: column;
-    padding: 1rem; }
+    align-items: center;
+    padding: 1rem 0; }
     main aside h3, main section h3 {
-      padding: 1rem 0.5rem; }
+      padding: 1rem 0; }
     main aside ul, main section ul {
-      padding: 1rem 0.5rem;
-      flex-direction: column; }
+      padding: 1rem 0;
+      flex-direction: column;
+      align-items: center; }
       main aside ul li, main section ul li {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        width: 80%; }
+        align-items: center; }
         main aside ul li h4, main section ul li h4 {
           font-size: 1.33rem;
           padding-bottom: 0.5rem; }
         main aside ul li img, main section ul li img {
-          padding-bottom: 0.5rem; }
+          width: 100%;
+          padding: 1rem; }
         main aside ul li span, main section ul li span {
           padding-bottom: 0.5rem; }
         main aside ul li p, main section ul li p {
@@ -62,10 +64,11 @@ main {
         main aside ul li a, main section ul li a {
           font-size: 1rem;
           padding-bottom: 2rem; }
-  main section {
-    align-items: center; }
-    main section h2 {
-      padding-right: 4rem; }
+    main aside .flex-start > *, main section .flex-start > * {
+      align-self: flex-start;
+      padding: 0 1rem; }
+    main aside .flex-start p, main section .flex-start p {
+      padding: 1rem; }
 
 footer {
   display: flex;
@@ -114,3 +117,11 @@ footer {
     flex-direction: row; }
     #main-footer nav ul {
       padding: 0 1rem; }
+
+@media (max-width: 75rem) {
+  #left {
+    order: -1; }
+  #center {
+    order: 0; }
+  #right {
+    order: 1; } }
