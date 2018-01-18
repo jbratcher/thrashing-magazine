@@ -54,11 +54,9 @@ header {
   header li {
     font-size: 0.5rem;
     padding: 0.125rem; }
-  header #brand {
-    margin-left: 5rem; }
-    header #brand h1 {
-      font-size: 1.75rem;
-      white-space: nowrap; }
+  header #brand h1 {
+    font-size: 1.25rem;
+    white-space: nowrap; }
 
 #left {
   grid-area: aside-left; }
@@ -96,11 +94,6 @@ aside, #main-content {
         padding: 1rem; }
       aside ul li a, #main-content ul li a {
         font-size: 1rem; }
-  aside .flex-start > *, #main-content .flex-start > * {
-    align-self: flex-start;
-    padding: 0 1rem; }
-  aside .flex-start p, #main-content .flex-start p {
-    padding: 1rem; }
 
 #main-footer {
   grid-area: main-footer;
@@ -108,18 +101,18 @@ aside, #main-content {
   color: #eee;
   display: flex;
   flex-direction: column;
-  align-items: center; }
-  #main-footer #mf-img {
-    margin: 1rem 0; }
-    #main-footer #mf-img img {
-      border-radius: 0.3rem; }
+  align-items: space-around; }
+  #main-footer #mf-img img {
+    width: 100vw; }
   #main-footer #mf-nav-1 {
     display: flex;
     justify-content: space-around; }
     #main-footer #mf-nav-1 ul {
       display: flex;
       flex-direction: column;
-      align-items: center; }
+      margin: 1rem; }
+      #main-footer #mf-nav-1 ul li a {
+        color: #fff; }
   #main-footer #mf-nav-2 ul {
     display: flex;
     flex-direction: row;
@@ -127,13 +120,8 @@ aside, #main-content {
     margin: 0 1rem; }
     #main-footer #mf-nav-2 ul li {
       padding: 1rem; }
-  #main-footer a {
-    color: #eee; }
-  #main-footer nav {
-    display: flex;
-    flex-direction: row; }
-    #main-footer nav ul {
-      padding: 0 1rem; }
+      #main-footer #mf-nav-2 ul li a {
+        color: #fff; }
 
 #sub-footer {
   grid-area: sub-footer;
@@ -159,7 +147,9 @@ aside, #main-content {
       align-self: center; }
     #sub-footer .form-wrapper form {
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      align-self: center;
+      Width: 75vw; }
       #sub-footer .form-wrapper form input, #sub-footer .form-wrapper form textarea {
         padding: 0.33rem; }
       #sub-footer .form-wrapper form input, #sub-footer .form-wrapper form textarea, #sub-footer .form-wrapper form a {
@@ -183,12 +173,16 @@ aside, #main-content {
       #sub-footer #sf-nav ul li {
         padding: 1rem; }
 
-@media (min-width: 65rem) {
+@media (min-width: 60rem) {
+  header #brand h1 {
+    font-size: 3rem; }
   body {
     display: grid;
     grid-template-areas: 'header header header header header' 'aside-left main main main aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; } }
 
-@media (min-width: 48rem) {
+@media (min-width: 40rem) and (max-width: 60rem) {
+  header #brand h1 {
+    font-size: 2rem; }
   body {
     display: grid;
     grid-template-areas: 'header header header header header' 'aside-left aside-left main main main' 'aside-right aside-right aside-right aside-right aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; } }

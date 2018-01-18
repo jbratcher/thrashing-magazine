@@ -86,10 +86,10 @@ header {
     
     
     #brand {
-        margin-left: 5rem;
+        // margin-left: 5rem;
         
         h1 {
-            font-size: 1.75rem;
+            font-size: 1.25rem;
             white-space: nowrap;
         }
     }
@@ -154,15 +154,6 @@ aside, #main-content {
         }
     }
     
-    .flex-start > * {
-        align-self: flex-start;
-        padding: 0 1rem;
-    }
-    
-    .flex-start p {
-        padding: 1rem;
-    }
-    
 }
 
 // Main Footer
@@ -173,13 +164,12 @@ aside, #main-content {
     color: #eee;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: space-around;
     
     #mf-img {
-        margin: 1rem 0;
         
         img {
-            border-radius: 0.3rem;
+            width: 100vw;
         }
     }
     
@@ -190,8 +180,18 @@ aside, #main-content {
         ul {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            margin: 1rem;
+            
+            li {
+            
+                a {
+                    color: #fff;
+                }
+                
+            }
+            
         }
+        
     }
     
     #mf-nav-2 {
@@ -204,21 +204,15 @@ aside, #main-content {
             
             li {
                 padding: 1rem;
+                
+                a {
+                    color: #fff;
+                }
+                
             }
+            
         }
-    }
-    
-    a {
-        color: #eee;
-    }
-    
-    nav {
-        display: flex;
-        flex-direction: row;
         
-        ul {
-            padding: 0 1rem;
-        }
     }
     
 }
@@ -262,6 +256,8 @@ aside, #main-content {
         form {
             display: flex;
             flex-direction: column;
+            align-self:center;
+            Width: 75vw;
             
             input, textarea {
                 padding: 0.33rem;
@@ -311,14 +307,20 @@ aside, #main-content {
 
 // Media Queries
 
-// @media (max-width: 75rem) {
-    
-      
+// Large Desktop
+
+// @media (min-width: 80rem) {
     
 // }
 
-@media (min-width: 65rem) {
+//Regular Desktop
+
+@media (min-width: 60rem) {
     
+    header #brand h1 {
+        font-size: 3rem;
+    }
+
     body {
         display: grid;
         grid-template-areas:
@@ -330,7 +332,12 @@ aside, #main-content {
     
 }
 
-@media (min-width: 48rem) {
+
+@media (min-width: 40rem) and (max-width: 60rem) {
+    
+    header #brand h1 {
+        font-size: 2rem;
+    }
     
     body {
         display: grid;
@@ -344,6 +351,3 @@ aside, #main-content {
     
 }
 
-// @media (min-width: 22.5rem) {
-    
-// }

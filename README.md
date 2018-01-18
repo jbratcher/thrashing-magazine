@@ -2,7 +2,7 @@
 
 Magazine Style Layout with CSS Grid
 
-v1.0.1
+v1.0.2
 
 ### Features
 
@@ -14,13 +14,18 @@ v1.0.1
 
 ### Todo List
 
-* Media Queries for responsiveness
-* Refactor for more grid usage
+* Compontentize all items for CSS grid
+* Sub footer form, styling
 
 ### Change Log
+
+###### 1.0.2
+
+* Updated layout to full grid
+* More grid items
 
 ###### 1.0.1
 
 * Updated gulpfile.js and package.json to current working version of gulp-dev-env
 * Restructured and updated readme.md
-* 
+
