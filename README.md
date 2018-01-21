@@ -2,15 +2,17 @@
 
 Magazine Style Layout with CSS Grid
 
-v1.0.2
+v1.0.3
 
 ### Features
 
 * Built on CSS grid
+* Fully responsive with mobile menu
+* Responsive typography
 
 ### Dependencies
 
-* Font Awesome v4.x
+* Font Awesome v4.7
 
 ### Todo List
 
@@ -18,6 +20,11 @@ v1.0.2
 * Sub footer form, styling
 
 ### Change Log
+
+###### 1.0.3
+
+* Added off-canvas mobile menu
+* Refactored HTML and CSS for menu layouts
 
 ###### 1.0.2
 

@@ -1,11 +1,11 @@
 *, *:before, *:after {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 html, body {
   background: #fff;
+  color: #000;
   scroll-behavior: smooth;
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   overflow-x: hidden; }
@@ -23,39 +23,11 @@ a {
   font-size: 1rem;
   text-decoration: none;
   opacity: 0.75;
-  transition: all 300ms ease-out; }
+  transition: all 0.3s ease-out; }
 
 a:hover {
   text-decoration: underline;
   opacity: 1; }
-
-#nav-left {
-  grid-area: nav-left;
-  display: none; }
-
-#brand {
-  grid-area: brand; }
-
-#nav-right {
-  grid-area: nav-right;
-  display: none; }
-
-#nav-mobile {
-  grid-area: nav-mobile;
-  position: absolute;
-  right: -15rem;
-  background: #ccc;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem; }
-  #nav-mobile ul {
-    padding: 0 1rem; }
-    #nav-mobile ul li {
-      padding: 1rem; }
-      #nav-mobile ul li a {
-        font-size: 1.5rem; }
-
-#nav-mobile:target {
-  transform: translateX(-15rem); }
 
 header {
   grid-area: header;
@@ -63,24 +35,53 @@ header {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: 'brand brand nav-mobile menu-toggle' 'brand brand nav-mobile menu-toggle';
   padding: 1rem; }
-  header ul {
+  header #nav-left ul, header #nav-right ul {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    list-style-type: none;
-    margin: 0; }
-  header li {
+    flex-direction: row;
+    align-items: center; }
+  header #nav-left li, header #nav-right li {
     font-size: 0.5rem;
-    padding: 0.125rem 0.25rem; }
-  header #brand h1 {
-    font-size: 1.5rem;
-    white-space: nowrap; }
+    padding: 0 1rem; }
+  header #nav-left {
+    grid-area: nav-left;
+    display: none; }
+  header #nav-right {
+    grid-area: nav-right;
+    display: none; }
+  header #brand {
+    grid-area: brand; }
+    header #brand h1 {
+      font-size: 1.5rem; }
   header #menu-toggle {
     justify-self: end;
     grid-area: menu-toggle;
     position: relative;
     top: 0;
     right: 0; }
+  header #menu-toggle:hover {
+    color: #aaa;
+    transition: all 0.3s ease-in-out; }
+  header #nav-mobile {
+    grid-area: nav-mobile;
+    position: absolute;
+    right: -15rem;
+    background: #ccc;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem; }
+    header #nav-mobile ul {
+      padding: 0 1rem; }
+      header #nav-mobile ul li {
+        padding: 1rem; }
+        header #nav-mobile ul li a {
+          font-size: 1.5rem; }
+    header #nav-mobile #nav-close {
+      position: absolute;
+      right: 1.5rem; }
+    header #nav-mobile #nav-close:hover {
+      text-decoration: none;
+      color: #999; }
+  header #nav-mobile:target {
+    transform: translateX(-15rem); }
 
 #left {
   grid-area: aside-left; }
@@ -116,6 +117,9 @@ aside, #main-content {
       aside ul li img, #main-content ul li img {
         width: 100%;
         padding: 1rem; }
+      aside ul li span, aside ul li p, aside ul li a, #main-content ul li span, #main-content ul li p, #main-content ul li a {
+        width: 80%;
+        padding: 0.5rem 0; }
       aside ul li a, #main-content ul li a {
         font-size: 1rem; }
 
@@ -127,7 +131,8 @@ aside, #main-content {
   flex-direction: column;
   align-items: space-around; }
   #main-footer #mf-img img {
-    width: 100vw; }
+    width: 100vw;
+    min-height: 10vh; }
   #main-footer #mf-nav-1 {
     display: flex;
     justify-content: space-around; }
@@ -142,10 +147,9 @@ aside, #main-content {
   #main-footer #mf-nav-2 ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin: 0 1rem; }
+    justify-content: center; }
     #main-footer #mf-nav-2 ul li {
-      padding: 1rem; }
+      padding: 1rem 0.25rem; }
       #main-footer #mf-nav-2 ul li a {
         color: #fff; }
 
@@ -195,50 +199,41 @@ aside, #main-content {
     #sub-footer #sf-nav ul {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
-      margin: 0 1rem; }
+      justify-content: center; }
       #sub-footer #sf-nav ul li {
-        padding: 1rem; }
+        padding: 1rem 0.25rem; }
 
 @media (min-width: 60rem) {
+  body {
+    display: grid;
+    grid-template-areas: 'header header header header header' 'aside-left main main main aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
   header {
     grid-template-areas: 'nav-left brand brand nav-right';
     justify-items: center; }
     header #brand h1 {
       font-size: 2rem; }
-    header ul {
-      right: 0;
-      flex-direction: row; }
-      header ul li {
-        padding: 0 0.2rem; }
     header #nav-left, header #nav-right {
-      display: block; }
+      display: flex; }
     header .toggle, header #nav-mobile {
       display: none; }
-  body {
-    display: grid;
-    grid-template-areas: 'header header header header header' 'aside-left main main main aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
+  #main-footer #mf-nav-2 ul li, #sub-footer #sf-nav ul li {
+    padding: 2rem; }
   #sub-footer .form-wrapper form {
     width: 35vw; } }
 
 @media (min-width: 40rem) and (max-width: 60rem) {
+  body {
+    display: grid;
+    grid-template-areas: 'header header header header header' 'aside-left aside-left main main main' 'aside-right aside-right aside-right aside-right aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
   header {
     grid-template-areas: 'brand brand nav-left nav-right'; }
     header #brand h1 {
       font-size: 2rem; }
-    header ul {
-      right: 0;
-      flex-direction: row; }
-      header ul li {
-        padding: 0 0.15rem; }
     header #nav-left, header #nav-right {
-      display: block; }
-    header #nav-left {
-      justify-self: flex-end; }
+      display: flex; }
     header .toggle, header #nav-mobile {
       display: none; }
-  body {
-    display: grid;
-    grid-template-areas: 'header header header header header' 'aside-left aside-left main main main' 'aside-right aside-right aside-right aside-right aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
+  #main-footer #mf-nav-2 ul li, #sub-footer #sf-nav ul li {
+    padding: 1rem; }
   #sub-footer .form-wrapper form {
     width: 50vw; } }
