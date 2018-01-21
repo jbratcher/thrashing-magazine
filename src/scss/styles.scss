@@ -89,7 +89,7 @@ header {
         // margin-left: 5rem;
         
         h1 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             white-space: nowrap;
         }
     }
@@ -183,6 +183,7 @@ aside, #main-content {
             margin: 1rem;
             
             li {
+                padding: 0.2rem 0;
             
                 a {
                     color: #fff;
@@ -251,13 +252,14 @@ aside, #main-content {
         h5 {
             font-size: 1.5rem;
             align-self: center;
+            padding: 0.3rem 0;
         }
         
         form {
             display: flex;
             flex-direction: column;
             align-self:center;
-            Width: 75vw;
+            Width: 65vw;
             
             input, textarea {
                 padding: 0.33rem;
@@ -304,7 +306,6 @@ aside, #main-content {
 }
 
 
-
 // Media Queries
 
 // Large Desktop
@@ -317,9 +318,25 @@ aside, #main-content {
 
 @media (min-width: 60rem) {
     
-    header #brand h1 {
-        font-size: 3rem;
-    }
+    header{
+        grid-template-areas:
+        'nav-left brand brand nav-right';
+        justify-items: center;
+      
+        #brand h1 {
+            font-size: 2rem;
+        }  
+        
+        ul {
+            flex-direction: row;
+            
+            li {
+                padding: 0 0.2rem;
+            }
+            
+        }
+        
+    } 
 
     body {
         display: grid;
@@ -330,14 +347,37 @@ aside, #main-content {
         'sub-footer sub-footer sub-footer sub-footer sub-footer';
     }
     
+    #sub-footer .form-wrapper form {
+        width: 35vw;
+    }
+    
 }
 
 
 @media (min-width: 40rem) and (max-width: 60rem) {
     
-    header #brand h1 {
-        font-size: 2rem;
-    }
+    header {
+        grid-template-areas:
+        'brand brand nav-left nav-right';
+        
+        #brand h1 {
+            font-size: 2rem;
+        }
+        
+        ul {
+            flex-direction: row;
+            
+            li {
+                padding: 0 0.15rem;
+            }
+            
+        }
+        
+        #nav-left {
+            justify-self: flex-end;
+        }
+    
+    } 
     
     body {
         display: grid;
@@ -348,6 +388,11 @@ aside, #main-content {
         'main-footer main-footer main-footer main-footer main-footer'
         'sub-footer sub-footer sub-footer sub-footer sub-footer';
     }
+    
+    #sub-footer .form-wrapper form {
+        width: 50vw;
+    }
+
     
 }
 

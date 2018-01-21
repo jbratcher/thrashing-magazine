@@ -55,7 +55,7 @@ header {
     font-size: 0.5rem;
     padding: 0.125rem; }
   header #brand h1 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     white-space: nowrap; }
 
 #left {
@@ -111,8 +111,10 @@ aside, #main-content {
       display: flex;
       flex-direction: column;
       margin: 1rem; }
-      #main-footer #mf-nav-1 ul li a {
-        color: #fff; }
+      #main-footer #mf-nav-1 ul li {
+        padding: 0.2rem 0; }
+        #main-footer #mf-nav-1 ul li a {
+          color: #fff; }
   #main-footer #mf-nav-2 ul {
     display: flex;
     flex-direction: row;
@@ -144,12 +146,13 @@ aside, #main-content {
     flex-direction: column; }
     #sub-footer .form-wrapper h5 {
       font-size: 1.5rem;
-      align-self: center; }
+      align-self: center;
+      padding: 0.3rem 0; }
     #sub-footer .form-wrapper form {
       display: flex;
       flex-direction: column;
       align-self: center;
-      Width: 75vw; }
+      Width: 65vw; }
       #sub-footer .form-wrapper form input, #sub-footer .form-wrapper form textarea {
         padding: 0.33rem; }
       #sub-footer .form-wrapper form input, #sub-footer .form-wrapper form textarea, #sub-footer .form-wrapper form a {
@@ -174,15 +177,34 @@ aside, #main-content {
         padding: 1rem; }
 
 @media (min-width: 60rem) {
-  header #brand h1 {
-    font-size: 3rem; }
+  header {
+    grid-template-areas: 'nav-left brand brand nav-right';
+    justify-items: center; }
+    header #brand h1 {
+      font-size: 2rem; }
+    header ul {
+      flex-direction: row; }
+      header ul li {
+        padding: 0 0.2rem; }
   body {
     display: grid;
-    grid-template-areas: 'header header header header header' 'aside-left main main main aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; } }
+    grid-template-areas: 'header header header header header' 'aside-left main main main aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
+  #sub-footer .form-wrapper form {
+    width: 35vw; } }
 
 @media (min-width: 40rem) and (max-width: 60rem) {
-  header #brand h1 {
-    font-size: 2rem; }
+  header {
+    grid-template-areas: 'brand brand nav-left nav-right'; }
+    header #brand h1 {
+      font-size: 2rem; }
+    header ul {
+      flex-direction: row; }
+      header ul li {
+        padding: 0 0.15rem; }
+    header #nav-left {
+      justify-self: flex-end; }
   body {
     display: grid;
-    grid-template-areas: 'header header header header header' 'aside-left aside-left main main main' 'aside-right aside-right aside-right aside-right aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; } }
+    grid-template-areas: 'header header header header header' 'aside-left aside-left main main main' 'aside-right aside-right aside-right aside-right aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
+  #sub-footer .form-wrapper form {
+    width: 50vw; } }
