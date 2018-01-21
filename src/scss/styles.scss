@@ -51,6 +51,7 @@ a:hover {
 
 #nav-left {
     grid-area: nav-left;
+    display: none;
 }
 
 #brand {
@@ -59,6 +60,35 @@ a:hover {
 
 #nav-right {
     grid-area: nav-right;
+    display: none;
+}
+
+#nav-mobile {
+    grid-area: nav-mobile;
+    position: absolute;
+    right: -15rem;
+    background: #ccc;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+
+    ul {
+        padding: 0 1rem;
+        
+        li {
+            padding: 1rem;
+            
+            a {
+                font-size: 1.5rem;
+            }   
+            
+        }
+    
+    }
+    
+}
+
+#nav-mobile:target {
+    transform: translateX(-15rem);
 }
 
 header {
@@ -66,9 +96,8 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-        'brand brand nav-left nav-left'
-        'brand brand nav-right nav-right';
-    align-items: stretch;
+        'brand brand nav-mobile menu-toggle'
+        'brand brand nav-mobile menu-toggle';
     padding: 1rem;
     
     ul {
@@ -81,12 +110,11 @@ header {
     
     li {
         font-size: 0.5rem;
-        padding: 0.125rem;
+        padding: 0.125rem 0.25rem;
     }
     
     
     #brand {
-        // margin-left: 5rem;
         
         h1 {
             font-size: 1.5rem;
@@ -94,6 +122,13 @@ header {
         }
     }
     
+    #menu-toggle {
+        justify-self: end;
+        grid-area: menu-toggle;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
     
 }
 
@@ -328,12 +363,21 @@ aside, #main-content {
         }  
         
         ul {
+            right: 0;
             flex-direction: row;
             
             li {
                 padding: 0 0.2rem;
             }
             
+        }
+        
+        #nav-left, #nav-right {
+            display: block;
+        }
+        
+        .toggle, #nav-mobile {
+            display: none;
         }
         
     } 
@@ -365,6 +409,7 @@ aside, #main-content {
         }
         
         ul {
+            right: 0;
             flex-direction: row;
             
             li {
@@ -373,8 +418,16 @@ aside, #main-content {
             
         }
         
+        #nav-left, #nav-right {
+            display: block;
+        }
+        
         #nav-left {
             justify-self: flex-end;
+        }
+        
+        .toggle, #nav-mobile {
+            display: none;
         }
     
     } 

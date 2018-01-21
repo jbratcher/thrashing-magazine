@@ -30,20 +30,38 @@ a:hover {
   opacity: 1; }
 
 #nav-left {
-  grid-area: nav-left; }
+  grid-area: nav-left;
+  display: none; }
 
 #brand {
   grid-area: brand; }
 
 #nav-right {
-  grid-area: nav-right; }
+  grid-area: nav-right;
+  display: none; }
+
+#nav-mobile {
+  grid-area: nav-mobile;
+  position: absolute;
+  right: -15rem;
+  background: #ccc;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem; }
+  #nav-mobile ul {
+    padding: 0 1rem; }
+    #nav-mobile ul li {
+      padding: 1rem; }
+      #nav-mobile ul li a {
+        font-size: 1.5rem; }
+
+#nav-mobile:target {
+  transform: translateX(-15rem); }
 
 header {
   grid-area: header;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: 'brand brand nav-left nav-left' 'brand brand nav-right nav-right';
-  align-items: stretch;
+  grid-template-areas: 'brand brand nav-mobile menu-toggle' 'brand brand nav-mobile menu-toggle';
   padding: 1rem; }
   header ul {
     display: flex;
@@ -53,10 +71,16 @@ header {
     margin: 0; }
   header li {
     font-size: 0.5rem;
-    padding: 0.125rem; }
+    padding: 0.125rem 0.25rem; }
   header #brand h1 {
     font-size: 1.5rem;
     white-space: nowrap; }
+  header #menu-toggle {
+    justify-self: end;
+    grid-area: menu-toggle;
+    position: relative;
+    top: 0;
+    right: 0; }
 
 #left {
   grid-area: aside-left; }
@@ -183,9 +207,14 @@ aside, #main-content {
     header #brand h1 {
       font-size: 2rem; }
     header ul {
+      right: 0;
       flex-direction: row; }
       header ul li {
         padding: 0 0.2rem; }
+    header #nav-left, header #nav-right {
+      display: block; }
+    header .toggle, header #nav-mobile {
+      display: none; }
   body {
     display: grid;
     grid-template-areas: 'header header header header header' 'aside-left main main main aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
@@ -198,11 +227,16 @@ aside, #main-content {
     header #brand h1 {
       font-size: 2rem; }
     header ul {
+      right: 0;
       flex-direction: row; }
       header ul li {
         padding: 0 0.15rem; }
+    header #nav-left, header #nav-right {
+      display: block; }
     header #nav-left {
       justify-self: flex-end; }
+    header .toggle, header #nav-mobile {
+      display: none; }
   body {
     display: grid;
     grid-template-areas: 'header header header header header' 'aside-left aside-left main main main' 'aside-right aside-right aside-right aside-right aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
