@@ -65,7 +65,7 @@ header {
     grid-area: nav-mobile;
     position: absolute;
     right: -15rem;
-    background: #ccc;
+    background: #333;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem; }
     header #nav-mobile ul {
@@ -73,6 +73,7 @@ header {
       header #nav-mobile ul li {
         padding: 1rem; }
         header #nav-mobile ul li a {
+          color: #eee;
           font-size: 1.5rem; }
     header #nav-mobile #nav-close {
       position: absolute;
@@ -193,6 +194,8 @@ aside, #main-content {
         border: 0.0625rem solid black;
         border-radius: 0.3rem; }
       #sub-footer .form-wrapper form a:hover {
+        background: #333;
+        color: #fff;
         text-decoration: none; }
   #sub-footer #sf-nav {
     grid-area: sf-nav; }

@@ -25,6 +25,7 @@ v1.0.3
 
 * Added off-canvas mobile menu
 * Refactored HTML and CSS for menu layouts
+* Added placeholder images
 
 ###### 1.0.2
 
