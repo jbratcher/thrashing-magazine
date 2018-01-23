@@ -7,10 +7,10 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Thrashing Magazine</title>
-        <link rel="preload" href="css/font-awesome.min.css">
-        <link rel="preload" href="css/styles.css">
+        <link rel="preload" as="style" href="css/vendor/font-awesome.min.css">
+        <link rel="preload" as="style" href="css/styles.css">
         <!--build:css css/styles.min.css-->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
         <link rel="stylesheet" href="css/styles.css">
         <!--endbuild-->
         
@@ -40,7 +40,7 @@
                 </ul>
             </nav>
             
-            <a href="#nav-mobile" id="menu-toggle" class="toggle"><span class="fa fa-bars fa-2x"></span></a>
+            <a href="#nav-mobile" id="menu-toggle" class="toggle"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
             
             <nav id="nav-mobile">
                 <ul>
@@ -260,7 +260,6 @@
         
     <!--build:js js/main.min.js -->
     <script async src="js/main.js"></script>
-    <script async src="js/index.js"></script>
     <!-- endbuild -->
 
     </body>

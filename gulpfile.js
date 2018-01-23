@@ -51,6 +51,16 @@ gulp.task('autoprefix', () =>
         .pipe(gulp.dest('dist/css'))
 );
 
+// Compile ES6 to ES5 with Babel
+
+gulp.task('compilejs', () =>
+    gulp.src('src/js/*.js')
+        .pipe(babel({
+            presets: ['env']
+        }))
+        .pipe(gulp.dest('dist/js'))
+);
+
 // Optimize Images and cache (Watched)
 
 gulp.task('img', () =>
@@ -71,19 +81,15 @@ gulp.task('browserSync', gulp.parallel('sass', function() {
       port: 8082     // Change port as needed, 8082 is for Cloud 9 workspace
 }),
     gulp.watch("src/scss/*.scss", gulp.parallel('sass')),
-    gulp.watch("*.html").on('change', browserSync.reload),
+    gulp.watch("src/*.html").on('change', browserSync.reload),
     gulp.watch("src/js/*.js").on('change', browserSync.reload);
 }));
 
-// Bundle JS, complie and minify
-// Bundle CSS and minify (prefix in 'autoprefix' task)
+// Bundle JS,CSS and minify
 
 gulp.task('useref', () =>
-  gulp.src('*.html')
+  gulp.src('dist/*.html')
     .pipe(useref())
-    .pipe(gulpIf('*.js', babel({
-            presets: ['env']
-          })))
     .pipe(gulpIf('*.js', uglify()))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
@@ -103,11 +109,11 @@ gulp.task('clean:dist', () =>
 );
 
 gulp.task('clean:files', () =>
-  del(['dist/css/styles.css', 'dist/js/index.js'])
+  del(['dist/css/styles.css', 'dist/css/font-awesome.min.css', 'dist/js/main.js'])
 );
 
 // Gulp default tasks
 
-gulp.task('default', gulp.parallel('sass', 'fonts', 'fa', 'browserSync'));
+gulp.task('default', gulp.parallel('sass', 'fonts', 'fa', 'img', 'browserSync'));
 
-gulp.task('build', gulp.series('clean:dist', 'build:dist', 'img', 'autoprefix', 'useref', 'clean:files'));
+gulp.task('build', gulp.series('clean:dist', 'build:dist', 'sass', 'fonts', 'fa', 'img', 'autoprefix', 'compilejs', 'useref', 'clean:files'));

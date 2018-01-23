@@ -86,23 +86,45 @@ header {
     transform: translateX(-15rem); }
 
 #left {
-  grid-area: aside-left; }
+  grid-area: aside-left;
+  position: relative; }
+
+#left::after {
+  content: "";
+  position: absolute;
+  top: 2.5%;
+  right: 0;
+  width: 0.0625rem;
+  height: 95%;
+  background: #666; }
 
 #center {
   grid-area: main; }
 
 #right {
-  grid-area: aside-right; }
+  grid-area: aside-right;
+  position: relative; }
+
+#right::after {
+  content: "";
+  position: absolute;
+  top: 2.5%;
+  left: 0;
+  width: 0.0625rem;
+  height: 95%;
+  background: #666; }
+
+#left, #center, #right {
+  border-bottom: 0.0625rem solid #666;
+  margin: 3rem 0 0; }
 
 aside, #main-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem; }
-  aside h2, #main-content h2 {
-    font-size: 1.33rem; }
-  aside h3, #main-content h3 {
-    font-size: 1.15rem; }
+  aside h2, aside h3, #main-content h2, #main-content h3 {
+    font-size: 2.33rem; }
   aside ul, #main-content ul {
     padding: 1rem 0;
     flex-direction: column;
@@ -114,7 +136,7 @@ aside, #main-content {
       font-size: 0.875rem;
       margin-bottom: 2rem; }
       aside ul li h4, #main-content ul li h4 {
-        font-size: 1rem;
+        font-size: 1.5rem;
         padding-bottom: 0.5rem; }
       aside ul li img, #main-content ul li img {
         width: 100%;
@@ -211,6 +233,17 @@ aside, #main-content {
   body {
     display: grid;
     grid-template-areas: 'header header header header header' 'aside-left main main main aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
+  aside h3 {
+    font-size: 1.25rem; }
+  aside ul li h4 {
+    font-size: 1rem; }
+  #main-content h2 {
+    font-size: 1.75rem; }
+  #main-content ul li h4 {
+    font-size: 1rem; }
+  #left, #center, #right {
+    border-bottom: none;
+    margin: 0; }
   header {
     grid-template-areas: 'nav-left brand brand nav-right';
     justify-items: center; }
@@ -237,6 +270,11 @@ aside, #main-content {
       display: flex; }
     header .toggle, header #nav-mobile {
       display: none; }
+  #left, #center {
+    border-bottom: 0.0625rem solid #666; }
+  #right {
+    margin: 3rem 0;
+    border: none; }
   #main-footer #mf-nav-2 ul li, #sub-footer #sf-nav ul li {
     padding: 1rem; }
   #sub-footer .form-wrapper form {
