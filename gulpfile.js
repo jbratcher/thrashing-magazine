@@ -92,7 +92,7 @@ gulp.task('useref', () =>
 // Move src files to dist
 
 gulp.task('build:dist', () =>
-    gulp.src(["src/**", "index.html"])
+    gulp.src(["src/**"])
         .pipe(gulp.dest("dist"))
 );
 
