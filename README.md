@@ -4,6 +4,8 @@ Magazine Style Layout with CSS Grid
 
 v1.0.4
 
+<a href="https://jbratcher.github.io/thrashing-magazine/" target="_blank">Demo Page</a>
+
 ### Features
 
 * Built on CSS grid
