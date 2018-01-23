@@ -77,19 +77,22 @@ gulp.task('img', () =>
 
 gulp.task('browserSync', gulp.parallel('sass', function() {
   browserSync.init({
-      server: "./src",
+      server: "./",
       port: 8082     // Change port as needed, 8082 is for Cloud 9 workspace
 }),
     gulp.watch("src/scss/*.scss", gulp.parallel('sass')),
-    gulp.watch("src/*.html").on('change', browserSync.reload),
+    gulp.watch("*.html").on('change', browserSync.reload),
     gulp.watch("src/js/*.js").on('change', browserSync.reload);
 }));
 
 // Bundle JS,CSS and minify
 
 gulp.task('useref', () =>
-  gulp.src('dist/*.html')
+  gulp.src('*.html')
     .pipe(useref())
+    .pipe(gulpIf('*.js', babel({
+            presets: ['env']
+          })))
     .pipe(gulpIf('*.js', uglify()))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
@@ -98,7 +101,7 @@ gulp.task('useref', () =>
 // Move src files to dist
 
 gulp.task('build:dist', () =>
-    gulp.src(["src/**"])
+    gulp.src(["src/**", "index.html"])
         .pipe(gulp.dest("dist"))
 );
 
