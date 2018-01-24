@@ -47,6 +47,13 @@ a:hover {
     opacity: 1;
 }
 
+// Default background for images / lazy loading
+
+img {
+    background: #eee;
+    background-clip: content-box;
+}
+
 // Header
 
 header {

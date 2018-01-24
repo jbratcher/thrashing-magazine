@@ -29,6 +29,10 @@ a:hover {
   text-decoration: underline;
   opacity: 1; }
 
+img {
+  background: #eee;
+  background-clip: content-box; }
+
 header {
   grid-area: header;
   display: grid;
