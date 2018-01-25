@@ -49,9 +49,13 @@ a:hover {
 
 // Default background for images / lazy loading
 
-img {
-    background: #eee;
+.skeleton {
+    background-color: #eee;
     background-clip: content-box;
+}
+
+img {
+    border-radius: 1.5rem;
 }
 
 // Header
@@ -259,6 +263,7 @@ aside, #main-content {
         img {
             width: 100vw;
             min-height: 10vh;
+            border-radius: 0;
         }
     }
     

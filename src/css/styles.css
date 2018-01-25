@@ -29,9 +29,12 @@ a:hover {
   text-decoration: underline;
   opacity: 1; }
 
-img {
-  background: #eee;
+.skeleton {
+  background-color: #eee;
   background-clip: content-box; }
+
+img {
+  border-radius: 1.5rem; }
 
 header {
   grid-area: header;
@@ -160,7 +163,8 @@ aside, #main-content {
   align-items: space-around; }
   #main-footer #mf-img img {
     width: 100vw;
-    min-height: 10vh; }
+    min-height: 10vh;
+    border-radius: 0; }
   #main-footer #mf-nav-1 {
     display: flex;
     justify-content: space-around; }
