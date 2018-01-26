@@ -11,8 +11,6 @@ $font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
 html, body {
-    background: #fff;
-    color: #000;
     scroll-behavior: smooth;
     font-size: $font-size;
     overflow-x: hidden;
@@ -39,7 +37,7 @@ a {
     font-size: 1rem;
     text-decoration: none;
     opacity: 0.75;
-    transition: all 0.3s ease-out;
+    transition: all 0.5s ease-out;
 }
 
 a:hover {
@@ -239,8 +237,19 @@ aside, #main-content {
                 padding: 0.5rem 0;
             }
             
-            a {
-                font-size: 1rem;
+            a:hover {
+                text-decoration: none;
+            }
+            
+            .pulse-right {
+                display: inline-block;
+                width: auto;
+                animation-play-state: paused;
+            }
+            
+            a:hover .pulse-right {
+                animation: ease-in-out 2s 0.3s infinite pulse;
+                animation-play-state: running; 
             }
             
         }
@@ -544,3 +553,31 @@ aside, #main-content {
 
 }
 
+// Animations
+
+@keyframes pulse {
+    from {
+        transform: translateX(0);
+    }
+    14.28% {
+        transform: translateX(4px);
+    }
+    28.56% {
+        transform: translateX(2px);
+    }
+    42.84% {
+        transform: translateX(8px);
+    }
+    57.12% {
+        transform: translateX(2px);
+    }
+    71.4% {
+        transform: translateX(4px);
+    }
+    85.69% {
+        transform: translateX(6px);
+    }
+    to {
+       transform: translateX(0); 
+    }
+}

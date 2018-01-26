@@ -4,8 +4,6 @@
   box-sizing: border-box; }
 
 html, body {
-  background: #fff;
-  color: #000;
   scroll-behavior: smooth;
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   overflow-x: hidden; }
@@ -23,7 +21,7 @@ a {
   font-size: 1rem;
   text-decoration: none;
   opacity: 0.75;
-  transition: all 0.3s ease-out; }
+  transition: all 0.5s ease-out; }
 
 a:hover {
   text-decoration: underline;
@@ -151,8 +149,15 @@ aside, #main-content {
       aside ul li span, aside ul li p, aside ul li a, #main-content ul li span, #main-content ul li p, #main-content ul li a {
         width: 80%;
         padding: 0.5rem 0; }
-      aside ul li a, #main-content ul li a {
-        font-size: 1rem; }
+      aside ul li a:hover, #main-content ul li a:hover {
+        text-decoration: none; }
+      aside ul li .pulse-right, #main-content ul li .pulse-right {
+        display: inline-block;
+        width: auto;
+        animation-play-state: paused; }
+      aside ul li a:hover .pulse-right, #main-content ul li a:hover .pulse-right {
+        animation: ease-in-out 2s 0.3s infinite pulse;
+        animation-play-state: running; }
 
 #main-footer {
   grid-area: main-footer;
@@ -287,3 +292,21 @@ aside, #main-content {
     padding: 1rem; }
   #sub-footer .form-wrapper form {
     width: 50vw; } }
+
+@keyframes pulse {
+  from {
+    transform: translateX(0); }
+  14.28% {
+    transform: translateX(4px); }
+  28.56% {
+    transform: translateX(2px); }
+  42.84% {
+    transform: translateX(8px); }
+  57.12% {
+    transform: translateX(2px); }
+  71.4% {
+    transform: translateX(4px); }
+  85.69% {
+    transform: translateX(6px); }
+  to {
+    transform: translateX(0); } }
