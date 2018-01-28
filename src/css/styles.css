@@ -22,10 +22,9 @@ a {
   text-decoration: none;
   opacity: 1;
   transition: all 0.5s ease-out; }
-
-a:hover {
-  text-decoration: underline;
-  opacity: 0.75; }
+  a:hover {
+    text-decoration: underline;
+    opacity: 0.75; }
 
 .skeleton {
   background-color: #eee;
@@ -39,7 +38,7 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: 'brand brand nav-mobile menu-toggle' 'brand brand nav-mobile menu-toggle';
-  border-bottom: 0.125rem solid #000;
+  border-bottom: 0.0625rem solid #000;
   padding: 1rem; }
   header #nav-left ul, header #nav-right ul {
     display: flex;
@@ -65,44 +64,43 @@ header {
     position: relative;
     top: 0;
     right: 0; }
-  header #menu-toggle:hover {
-    color: #aaa;
-    transition: all 0.3s ease-in-out; }
+    header #menu-toggle:hover {
+      color: #aaa;
+      transition: all 0.3s ease-in-out; }
   header #nav-mobile {
     grid-area: nav-mobile;
     position: absolute;
     right: -15rem;
-    background: #666;
+    background: #eee;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem; }
+    header #nav-mobile:target {
+      transform: translateX(-15rem); }
     header #nav-mobile ul {
       padding: 0 1rem; }
       header #nav-mobile ul li {
         padding: 1rem; }
         header #nav-mobile ul li a {
-          color: #eee;
+          color: #000;
           font-size: 1rem; }
     header #nav-mobile #nav-close {
       position: absolute;
       right: 1.5rem; }
-    header #nav-mobile #nav-close:hover {
-      text-decoration: none;
-      color: #999; }
-  header #nav-mobile:target {
-    transform: translateX(-15rem); }
+      header #nav-mobile #nav-close:hover {
+        text-decoration: none;
+        color: #999; }
 
 #left {
   grid-area: aside-left;
   position: relative; }
-
-#left::after {
-  content: "";
-  position: absolute;
-  top: 2.5%;
-  right: 0;
-  width: 0.0625rem;
-  height: 95%;
-  background: #666; }
+  #left::after {
+    content: "";
+    position: absolute;
+    top: 2.5%;
+    right: 0;
+    width: 0.0625rem;
+    height: 95%;
+    background: #666; }
 
 #center {
   grid-area: main; }
@@ -110,15 +108,14 @@ header {
 #right {
   grid-area: aside-right;
   position: relative; }
-
-#right::after {
-  content: "";
-  position: absolute;
-  top: 2.5%;
-  left: 0;
-  width: 0.0625rem;
-  height: 95%;
-  background: #666; }
+  #right::after {
+    content: "";
+    position: absolute;
+    top: 2.5%;
+    left: 0;
+    width: 0.0625rem;
+    height: 95%;
+    background: #666; }
 
 #left, #center, #right {
   border-bottom: 0.0625rem solid #666;
@@ -150,15 +147,15 @@ aside, #main-content {
       aside ul li span, aside ul li p, aside ul li a, #main-content ul li span, #main-content ul li p, #main-content ul li a {
         width: 80%;
         padding: 0.5rem 0; }
-      aside ul li a:hover, #main-content ul li a:hover {
-        text-decoration: none; }
       aside ul li .pulse-right, #main-content ul li .pulse-right {
         display: inline-block;
         width: auto;
         animation-play-state: paused; }
-      aside ul li a:hover .pulse-right, #main-content ul li a:hover .pulse-right {
-        animation: ease-in-out 2s 0.3s infinite pulse;
-        animation-play-state: running; }
+      aside ul li a:hover, #main-content ul li a:hover {
+        text-decoration: none; }
+        aside ul li a:hover .pulse-right, #main-content ul li a:hover .pulse-right {
+          animation: ease-in-out 2s 0.3s infinite pulse;
+          animation-play-state: running; }
 
 #main-footer {
   grid-area: main-footer;
@@ -230,10 +227,10 @@ aside, #main-content {
         padding: 0.5rem 0;
         border: 0.0625rem solid black;
         border-radius: 0.3rem; }
-      #sub-footer .form-wrapper form a:hover {
-        background: #333;
-        color: #fff;
-        text-decoration: none; }
+        #sub-footer .form-wrapper form a:hover {
+          background: #333;
+          color: #fff;
+          text-decoration: none; }
   #sub-footer #sf-nav {
     grid-area: sf-nav; }
     #sub-footer #sf-nav ul {
@@ -247,13 +244,11 @@ aside, #main-content {
   body {
     display: grid;
     grid-template-areas: 'header header header header header' 'aside-left main main main aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
-  aside h3 {
-    font-size: 1.25rem; }
-  aside ul li h4 {
-    font-size: 1rem; }
-  #main-content h2 {
+  aside h2, #main-content h2 {
     font-size: 1.75rem; }
-  #main-content ul li h4 {
+  aside h3, #main-content h3 {
+    font-size: 1.25rem; }
+  aside ul li h4, #main-content ul li h4 {
     font-size: 1rem; }
   #left, #center, #right {
     border-bottom: none;
