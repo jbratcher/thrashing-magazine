@@ -244,15 +244,6 @@ aside, #main-content {
   body {
     display: grid;
     grid-template-areas: 'header header header header header' 'aside-left main main main aside-right' 'main-footer main-footer main-footer main-footer main-footer' 'sub-footer sub-footer sub-footer sub-footer sub-footer'; }
-  aside h2, #main-content h2 {
-    font-size: 1.75rem; }
-  aside h3, #main-content h3 {
-    font-size: 1.25rem; }
-  aside ul li h4, #main-content ul li h4 {
-    font-size: 1rem; }
-  #left, #center, #right {
-    border-bottom: none;
-    margin: 0; }
   header {
     grid-template-areas: 'nav-left brand brand nav-right';
     justify-items: center; }
@@ -262,6 +253,15 @@ aside, #main-content {
       display: flex; }
     header .toggle, header #nav-mobile {
       display: none; }
+  aside h2, #main-content h2 {
+    font-size: 1.75rem; }
+  aside h3, #main-content h3 {
+    font-size: 1.25rem; }
+  aside ul li h4, #main-content ul li h4 {
+    font-size: 1rem; }
+  #left, #center, #right {
+    border-bottom: none;
+    margin: 0; }
   #main-footer #mf-nav-2 ul li, #sub-footer #sf-nav ul li {
     padding: 2rem; }
   #sub-footer .form-wrapper form {

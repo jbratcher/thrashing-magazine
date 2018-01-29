@@ -432,6 +432,25 @@ aside, #main-content {
         'sub-footer sub-footer sub-footer sub-footer sub-footer';
     }
     
+    header {
+        grid-template-areas:
+        'nav-left brand brand nav-right';
+        justify-items: center;
+      
+        #brand h1 {
+            font-size: 2rem;
+        }  
+        
+        #nav-left, #nav-right {
+            display: flex;
+        }
+        
+        .toggle, #nav-mobile {
+            display: none;
+        }
+        
+    } 
+    
     aside, #main-content {
         
         h2 {
@@ -455,25 +474,6 @@ aside, #main-content {
         border-bottom: none;
         margin: 0;
     }
-    
-    header {
-        grid-template-areas:
-        'nav-left brand brand nav-right';
-        justify-items: center;
-      
-        #brand h1 {
-            font-size: 2rem;
-        }  
-        
-        #nav-left, #nav-right {
-            display: flex;
-        }
-        
-        .toggle, #nav-mobile {
-            display: none;
-        }
-        
-    } 
     
     #main-footer #mf-nav-2, #sub-footer #sf-nav {
         
