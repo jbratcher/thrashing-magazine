@@ -63,11 +63,12 @@ header {
     grid-area: menu-toggle;
     position: relative;
     top: 0;
-    right: 0; }
+    right: -5rem; }
     header #menu-toggle:hover {
       color: #aaa;
       transition: all 0.3s ease-in-out; }
   header #nav-mobile {
+    display: none;
     grid-area: nav-mobile;
     position: absolute;
     right: -15rem;
@@ -75,6 +76,7 @@ header {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem; }
     header #nav-mobile:target {
+      display: flex;
       transform: translateX(-15rem); }
     header #nav-mobile ul {
       padding: 0 1rem; }
@@ -217,6 +219,7 @@ aside, #main-content {
       align-self: center;
       Width: 65vw; }
       #sub-footer .form-wrapper form input, #sub-footer .form-wrapper form textarea {
+        border-radius: 0.5rem;
         padding: 0.33rem; }
       #sub-footer .form-wrapper form input, #sub-footer .form-wrapper form textarea, #sub-footer .form-wrapper form a {
         margin: 0.33rem; }
