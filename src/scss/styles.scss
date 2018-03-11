@@ -33,7 +33,7 @@ ul {
 }
 
 a {
-    color: #000;
+    color: #333;
     font-size: 1rem;
     text-decoration: none;
     opacity: 1;
@@ -52,7 +52,7 @@ a {
 }
 
 img {
-    border-radius: 1.5rem;
+    border-radius: 2rem;
 }
 
 // Header
@@ -115,7 +115,7 @@ header {
         right: -5rem;
         
         &:hover {
-            color: #aaa;
+            opacity: 0.5;
             transition: all 0.3s ease-in-out;
         }
     
@@ -142,7 +142,7 @@ header {
                 padding: 1rem;
                 
                 a {
-                    color: #000;
+                    color: #333;
                     font-size: 1rem;
                 }   
                 
@@ -156,7 +156,7 @@ header {
             
             &:hover {
                 text-decoration: none;
-                color: #999;
+                opacity: 0.5;
             }
         
         }

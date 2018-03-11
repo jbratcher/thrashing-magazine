@@ -17,7 +17,7 @@ ul {
   list-style-type: none; }
 
 a {
-  color: #000;
+  color: #333;
   font-size: 1rem;
   text-decoration: none;
   opacity: 1;
@@ -31,7 +31,7 @@ a {
   background-clip: content-box; }
 
 img {
-  border-radius: 1.5rem; }
+  border-radius: 2rem; }
 
 header {
   grid-area: header;
@@ -65,7 +65,7 @@ header {
     top: 0;
     right: -5rem; }
     header #menu-toggle:hover {
-      color: #aaa;
+      opacity: 0.5;
       transition: all 0.3s ease-in-out; }
   header #nav-mobile {
     display: none;
@@ -83,14 +83,14 @@ header {
       header #nav-mobile ul li {
         padding: 1rem; }
         header #nav-mobile ul li a {
-          color: #000;
+          color: #333;
           font-size: 1rem; }
     header #nav-mobile #nav-close {
       position: absolute;
       right: 1.5rem; }
       header #nav-mobile #nav-close:hover {
         text-decoration: none;
-        color: #999; }
+        opacity: 0.5; }
 
 #left {
   grid-area: aside-left;
