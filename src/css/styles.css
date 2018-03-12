@@ -5,7 +5,7 @@
 
 html, body {
   scroll-behavior: smooth;
-  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(12px + (22 - 12) * ((100vw - 300px) / (1600 - 300)));
   overflow-x: hidden; }
 
 body {
@@ -27,7 +27,7 @@ a {
     opacity: 0.75; }
 
 .skeleton {
-  background-color: #eee;
+  background-color: #ccc;
   background-clip: content-box; }
 
 img {

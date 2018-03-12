@@ -1,6 +1,6 @@
 // Variables
 
-$font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+$font-size: calc(12px + (22 - 12) * ((100vw - 300px) / (1600 - 300)));
 
 // Global
 
@@ -47,7 +47,7 @@ a {
 }
 
 .skeleton {
-    background-color: #eee;
+    background-color: #ccc;
     background-clip: content-box;
 }
 
