@@ -62,8 +62,7 @@ header {
     justify-self: end;
     grid-area: menu-toggle;
     position: relative;
-    top: 0;
-    right: -5rem; }
+    top: 0; }
     header #menu-toggle:hover {
       opacity: 0.5;
       transition: all 0.3s ease-in-out; }
