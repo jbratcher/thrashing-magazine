@@ -71,21 +71,30 @@ header {
     grid-area: nav-mobile;
     position: absolute;
     right: -15rem;
-    background: #eee;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem; }
+    background: #eee; }
     header #nav-mobile:target {
       display: flex;
-      transform: translateX(-15rem); }
+      transform: translateX(-15rem);
+      width: 100vw; }
+      header #nav-mobile:target ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; }
     header #nav-mobile ul {
       padding: 0 1rem; }
       header #nav-mobile ul li {
         padding: 1rem; }
+        header #nav-mobile ul li:nth-of-type(2) {
+          padding-top: 2rem; }
+        header #nav-mobile ul li:last-of-type {
+          padding-bottom: 5rem; }
         header #nav-mobile ul li a {
           color: #333;
-          font-size: 1rem; }
+          font-size: 2rem; }
     header #nav-mobile #nav-close {
       position: absolute;
+      top: 0.5rem;
       right: 1.5rem; }
       header #nav-mobile #nav-close:hover {
         text-decoration: none;
