@@ -1,5 +1,4 @@
 // Require dependencies
-// Gulp, BrowserSync, SASS, useref with gulpif to bundle and minify CSS adn JS, CSS autoprefixer, Imagemin to optimize images, cache to reduce reload, del to remove(clean) the dist directory
 
 const gulp          = require('gulp');
 const pump          = require('pump');
@@ -17,14 +16,10 @@ const del           = require('del');
 
 // Move vendor files from node modules to src folders
 
-// Move Fonts (font awesome) to src/fonts
-
 gulp.task('fonts', () =>
   gulp.src('node_modules/font-awesome/fonts/*')
     .pipe(gulp.dest('src/css/fonts'))
 );
-
-// Move Font Awesome Icons CSS to src/css/vendor
 
 gulp.task('fa', () =>
   gulp.src('node_modules/font-awesome/css/font-awesome.min.css')

@@ -121,14 +121,14 @@ header {
     }
     
     #nav-mobile {
-        display: none;
+        display: flex;
         grid-area: nav-mobile;
         position: absolute;
         right: -15rem;
         background: #eee;
+        transition: all 0.3s;
         
         &:target {
-            display: flex;
             transform: translateX(-15rem);
             width: 100vw;
             
