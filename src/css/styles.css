@@ -26,23 +26,18 @@ a {
     text-decoration: underline;
     opacity: 0.75; }
 
-.skeleton {
-  background-color: #ccc;
-  background-clip: content-box; }
-
 img {
   border-radius: 2rem; }
 
 header {
-  grid-area: header;
   display: grid;
+  grid-area: header;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: 'brand brand nav-mobile menu-toggle' 'brand brand nav-mobile menu-toggle';
   border-bottom: 0.0625rem solid #000;
   padding: 1rem; }
   header #nav-left ul, header #nav-right ul {
     display: flex;
-    flex-direction: row;
     align-items: center; }
     header #nav-left ul li, header #nav-right ul li {
       padding: 0 1rem; }
