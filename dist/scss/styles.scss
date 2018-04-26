@@ -46,6 +46,11 @@ a {
     
 }
 
+.skeleton {
+    background-color: #ccc;
+    background-clip: content-box;
+}
+
 img {
     border-radius: 2rem;
 }
@@ -53,19 +58,21 @@ img {
 // Header
 
 header {
+    border-bottom: 0.0625rem solid #000;
     display: grid;
     grid-area: header;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
         'brand brand nav-mobile menu-toggle'
         'brand brand nav-mobile menu-toggle';
-    border-bottom: 0.0625rem solid #000;
     padding: 1rem;
+    overflow-x: hidden;
     
     #nav-left, #nav-right {
         
         ul {
             display: flex;
+            flex-direction: row;
             align-items: center;
             
             li {
@@ -115,42 +122,48 @@ header {
     }
     
     #nav-mobile {
+        background: #eee;
+        background: radial-gradient(ellipse at right center, rgba(255,255,255,1) 0%,rgba(245,245,245,1) 100%);
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
         display: flex;
         grid-area: nav-mobile;
-        position: absolute;
         right: -15rem;
-        background: #eee;
-        transition: all 0.3s;
+        position: fixed;
+        opacity: 0;
+        overflow-x: hidden;
+        transition: 1s ease-in-out;
+        width: 0;
+        z-index: 1;
         
         &:target {
+            border-radius: 0;
+            opacity: 1;
             transform: translateX(-15rem);
             width: 100vw;
-            
-            ul {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
         }
     
         ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 0 1rem;
+            width: 100%;
             
             li {
                 padding: 1rem;
                 
                 &:nth-of-type(2) {
-                  padding-top: 2rem;
+                  padding-top: 5rem;
                 }
                 
                 &:last-of-type {
                     padding-bottom: 5rem;
                 }
                 
-                a {
-                    color: #333;
-                    font-size: 2rem;
+                &:not(:first-of-type) a {
+                    color: #222;
+                    font-size: 2.5rem;
                 }   
                 
             }
@@ -158,6 +171,7 @@ header {
         }
         
         #nav-close {
+            font-size: 1.5rem;
             position: absolute;
             top: 0.5rem;
             right: 1.5rem;
