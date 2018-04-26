@@ -66,7 +66,7 @@ header {
         'brand brand nav-mobile menu-toggle'
         'brand brand nav-mobile menu-toggle';
     padding: 1rem;
-    overflow: hidden;
+    overflow-x: hidden;
     
     #nav-left, #nav-right {
         
@@ -122,28 +122,29 @@ header {
     }
     
     #nav-mobile {
+        background: #eee;
         display: flex;
         grid-area: nav-mobile;
-        position: absolute;
         right: -15rem;
-        background: #eee;
+        opacity: 0;
+        overflow-x: hidden;
         transition: 1s ease-in-out;
+        width: 0;
+        position: fixed;
+        z-index: 1;
         
         &:target {
-            display: flex;
+            opacity: 1;
             transform: translateX(-15rem);
             width: 100vw;
-            
-            ul {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
         }
     
         ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 0 1rem;
+            width: 100%;
             
             li {
                 padding: 1rem;
