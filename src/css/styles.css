@@ -26,10 +26,6 @@ a {
     text-decoration: underline;
     opacity: 0.75; }
 
-.skeleton {
-  background-color: #ccc;
-  background-clip: content-box; }
-
 img {
   border-radius: 2rem; }
 
@@ -39,8 +35,7 @@ header {
   grid-area: header;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: 'brand brand nav-mobile menu-toggle' 'brand brand nav-mobile menu-toggle';
-  padding: 1rem;
-  overflow-x: hidden; }
+  padding: 1rem; }
   header #nav-left ul, header #nav-right ul {
     display: flex;
     flex-direction: row;
@@ -77,12 +72,12 @@ header {
     right: -15rem;
     position: fixed;
     opacity: 0;
-    overflow-x: hidden;
     transition: 1s ease-in-out;
     width: 0;
     z-index: 1; }
     header #nav-mobile:target {
       border-radius: 0;
+      height: 100vh;
       opacity: 1;
       transform: translateX(-15rem);
       width: 100vw; }
@@ -204,7 +199,7 @@ aside, #main-content {
     flex-direction: row;
     justify-content: center; }
     #main-footer #mf-nav-2 ul li {
-      padding: 1rem 0.25rem; }
+      padding: 1rem; }
       #main-footer #mf-nav-2 ul li a {
         color: #fff; }
 
@@ -230,7 +225,7 @@ aside, #main-content {
     #sub-footer .form-wrapper h5 {
       font-size: 1.5rem;
       align-self: center;
-      padding: 0.3rem 0; }
+      padding: 0.3rem 0 1rem; }
     #sub-footer .form-wrapper form {
       display: flex;
       flex-direction: column;
@@ -259,7 +254,7 @@ aside, #main-content {
       flex-direction: row;
       justify-content: center; }
       #sub-footer #sf-nav ul li {
-        padding: 1rem 0.25rem; }
+        padding: 1rem 0.5rem; }
 
 @media (min-width: 60rem) {
   body {
