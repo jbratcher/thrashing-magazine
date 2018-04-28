@@ -5,7 +5,7 @@
 
 html, body {
   scroll-behavior: smooth;
-  font-size: calc(12px + (22 - 12) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   overflow-x: hidden; }
 
 body {
@@ -28,6 +28,9 @@ a {
 
 img {
   border-radius: 2rem; }
+
+aside li span, aside li p, aside li a, section li span, section li p, section li a {
+  font-size: 1.25rem; }
 
 header {
   border-bottom: 0.0625rem solid #000;
@@ -274,6 +277,8 @@ aside, #main-content {
   aside h3, #main-content h3 {
     font-size: 1.25rem; }
   aside ul li h4, #main-content ul li h4 {
+    font-size: 1rem; }
+  aside li span, aside li p, aside li a, section li span, section li p, section li a {
     font-size: 1rem; }
   #left, #center, #right {
     border-bottom: none;

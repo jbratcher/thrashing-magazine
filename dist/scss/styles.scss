@@ -1,6 +1,6 @@
 // Variables
 
-$font-size: calc(12px + (22 - 12) * ((100vw - 300px) / (1600 - 300)));
+$font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 
 // Global
 
@@ -48,6 +48,12 @@ a {
 
 img {
     border-radius: 2rem;
+}
+
+aside li, section li {
+    span, p, a {
+        font-size: 1.25rem;
+    }
 }
 
 // Header
@@ -486,6 +492,12 @@ aside, #main-content {
                 font-size: 1rem;
             }
             
+        }
+    }
+    
+    aside li, section li {
+        span, p, a {
+            font-size: 1rem;
         }
     }
     
