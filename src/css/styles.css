@@ -1,12 +1,12 @@
 *, *:before, *:after {
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
+  padding: 0; }
 
 html, body {
-  scroll-behavior: smooth;
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  scroll-behavior: smooth; }
 
 body {
   display: grid;
@@ -19,12 +19,12 @@ ul {
 a {
   color: #333;
   font-size: 1rem;
-  text-decoration: none;
   opacity: 1;
+  text-decoration: none;
   transition: all 0.5s ease-out; }
   a:hover {
-    text-decoration: underline;
-    opacity: 0.75; }
+    opacity: 0.75;
+    text-decoration: underline; }
 
 img {
   border-radius: 2rem; }
@@ -48,18 +48,18 @@ header {
       header #nav-left ul li a, header #nav-right ul li a {
         font-size: 1rem; }
   header #nav-left {
-    grid-area: nav-left;
-    display: none; }
+    display: none;
+    grid-area: nav-left; }
   header #nav-right {
-    grid-area: nav-right;
-    display: none; }
+    display: none;
+    grid-area: nav-right; }
   header #brand {
     grid-area: brand; }
     header #brand h1 {
       font-size: 1.5rem; }
   header #menu-toggle {
-    justify-self: end;
     grid-area: menu-toggle;
+    justify-self: end;
     position: relative;
     top: 0; }
     header #menu-toggle:hover {
@@ -93,9 +93,9 @@ header {
       header #nav-mobile ul li {
         padding: 1rem; }
         header #nav-mobile ul li:nth-of-type(2) {
-          padding-top: 5rem; }
+          padding-top: 3rem; }
         header #nav-mobile ul li:last-of-type {
-          padding-bottom: 5rem; }
+          padding-bottom: 3rem; }
         header #nav-mobile ul li:not(:first-of-type) a {
           color: #222;
           font-size: 2.5rem; }
@@ -105,8 +105,8 @@ header {
       top: 0.5rem;
       right: 1.5rem; }
       header #nav-mobile #nav-close:hover {
-        text-decoration: none;
-        opacity: 0.5; }
+        opacity: 0.5;
+        text-decoration: none; }
 
 #left {
   grid-area: aside-left;

@@ -5,15 +5,15 @@ $font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 // Global
 
 *, *:before, *:after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html, body {
-    scroll-behavior: smooth;
     font-size: $font-size;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -35,13 +35,13 @@ ul {
 a {
     color: #333;
     font-size: 1rem;
-    text-decoration: none;
     opacity: 1;
+    text-decoration: none;
     transition: all 0.5s ease-out;
     
     &:hover {
-        text-decoration: underline;
         opacity: 0.75;
+        text-decoration: underline;
     }
     
 }
@@ -51,9 +51,11 @@ img {
 }
 
 aside li, section li {
+    
     span, p, a {
         font-size: 1.25rem;
     }
+    
 }
 
 // Header
@@ -89,13 +91,13 @@ header {
     }
     
     #nav-left {
-        grid-area: nav-left;
         display: none;
+        grid-area: nav-left;
     }
     
     #nav-right {
-        grid-area: nav-right;
         display: none;
+        grid-area: nav-right;
     }
     
     
@@ -109,8 +111,8 @@ header {
     }
     
     #menu-toggle {
-        justify-self: end;
         grid-area: menu-toggle;
+        justify-self: end;
         position: relative;
         top: 0;
         
@@ -154,11 +156,11 @@ header {
                 padding: 1rem;
                 
                 &:nth-of-type(2) {
-                  padding-top: 5rem;
+                  padding-top: 3rem;
                 }
                 
                 &:last-of-type {
-                    padding-bottom: 5rem;
+                    padding-bottom: 3rem;
                 }
                 
                 &:not(:first-of-type) a {
@@ -177,8 +179,8 @@ header {
             right: 1.5rem;
             
             &:hover {
-                text-decoration: none;
                 opacity: 0.5;
+                text-decoration: none;
             }
         
         }
