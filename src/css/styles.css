@@ -112,13 +112,13 @@ header {
   grid-area: aside-left;
   position: relative; }
   #left::after {
+    background: #666;
     content: "";
+    height: 95%;
     position: absolute;
     top: 2.5%;
     right: 0;
-    width: 0.0625rem;
-    height: 95%;
-    background: #666; }
+    width: 0.0625rem; }
 
 #center {
   grid-area: main; }
@@ -127,13 +127,13 @@ header {
   grid-area: aside-right;
   position: relative; }
   #right::after {
+    background: #666;
     content: "";
+    height: 95%;
     position: absolute;
     top: 2.5%;
     left: 0;
-    width: 0.0625rem;
-    height: 95%;
-    background: #666; }
+    width: 0.0625rem; }
 
 #left, #center, #right {
   border-bottom: 0.0625rem solid #666;
@@ -147,9 +147,9 @@ aside, #main-content {
   aside h2, aside h3, #main-content h2, #main-content h3 {
     font-size: 2.33rem; }
   aside ul, #main-content ul {
-    padding: 1rem 0;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    padding: 1rem 0; }
     aside ul li, #main-content ul li {
       display: flex;
       flex-direction: column;
@@ -160,15 +160,15 @@ aside, #main-content {
         font-size: 1.5rem;
         padding-bottom: 0.5rem; }
       aside ul li img, #main-content ul li img {
-        width: 100%;
-        padding: 1rem; }
+        padding: 1rem;
+        width: 100%; }
       aside ul li span, aside ul li p, aside ul li a, #main-content ul li span, #main-content ul li p, #main-content ul li a {
-        width: 80%;
-        padding: 0.5rem 0; }
+        padding: 0.5rem 0;
+        width: 80%; }
       aside ul li .pulse-right, #main-content ul li .pulse-right {
+        animation-play-state: paused;
         display: inline-block;
-        width: auto;
-        animation-play-state: paused; }
+        width: auto; }
       aside ul li a:hover, #main-content ul li a:hover {
         text-decoration: none; }
         aside ul li a:hover .pulse-right, #main-content ul li a:hover .pulse-right {
@@ -176,16 +176,16 @@ aside, #main-content {
           animation-play-state: running; }
 
 #main-footer {
-  grid-area: main-footer;
   background: #333;
   color: #eee;
   display: flex;
   flex-direction: column;
-  align-items: space-around; }
+  align-items: space-around;
+  grid-area: main-footer; }
   #main-footer #mf-img img {
-    width: 100vw;
+    border-radius: 0;
     min-height: 10vh;
-    border-radius: 0; }
+    width: 100vw; }
   #main-footer #mf-nav-1 {
     display: flex;
     justify-content: space-around; }
@@ -207,24 +207,24 @@ aside, #main-content {
         color: #fff; }
 
 #sub-footer {
+  background: #ccc;
   grid-area: sub-footer;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 'about about about' 'form-wrapper form-wrapper form-wrapper' 'sf-nav sf-nav sf-nav';
   justify-items: center;
-  padding: 2rem 0;
-  background: #ccc; }
+  padding: 2rem 0; }
   #sub-footer #about {
-    grid-area: about;
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    grid-area: about; }
     #sub-footer #about p {
       padding: 0.25rem 0; }
   #sub-footer .form-wrapper {
-    grid-area: form-wrapper;
-    padding: 1rem 3rem;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    padding: 1rem 3rem;
+    grid-area: form-wrapper; }
     #sub-footer .form-wrapper h5 {
       font-size: 1.5rem;
       align-self: center;
@@ -240,12 +240,12 @@ aside, #main-content {
       #sub-footer .form-wrapper form input, #sub-footer .form-wrapper form textarea, #sub-footer .form-wrapper form a {
         margin: 0.33rem; }
       #sub-footer .form-wrapper form a {
-        text-align: center;
+        border: 0.0625rem solid black;
+        border-radius: 0.3rem;
         background: #fff;
         font-size: 1rem;
         padding: 0.5rem 0;
-        border: 0.0625rem solid black;
-        border-radius: 0.3rem; }
+        text-align: center; }
         #sub-footer .form-wrapper form a:hover {
           background: #333;
           color: #fff;

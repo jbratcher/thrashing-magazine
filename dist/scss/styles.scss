@@ -196,13 +196,13 @@ header {
     position: relative;
     
     &::after {
+        background: #666;
         content : "";
+        height: 95%;
         position: absolute;
         top: 2.5%;
         right: 0;
         width: 0.0625rem;
-        height: 95%;
-        background: #666;
     }
     
 }
@@ -216,13 +216,13 @@ header {
     position: relative;
     
     &::after {
+        background: #666;
         content : "";
+        height: 95%;
         position: absolute;
         top: 2.5%;
         left: 0;
         width: 0.0625rem;
-        height: 95%;
-        background: #666;
     }
 
 }
@@ -243,9 +243,9 @@ aside, #main-content {
     }
 
     ul {
-        padding: 1rem 0;
         flex-direction: column;
         align-items: center;
+        padding: 1rem 0;
         
         li {
             display: flex;
@@ -260,19 +260,19 @@ aside, #main-content {
             }
             
             img {
-                width: 100%;
                 padding: 1rem;
+                width: 100%;
             }
             
             span, p, a {
-                width: 80%;
                 padding: 0.5rem 0;
+                width: 80%;
             }
             
             .pulse-right {
+                animation-play-state: paused;
                 display: inline-block;
                 width: auto;
-                animation-play-state: paused;
             }
             
             a:hover {
@@ -294,19 +294,19 @@ aside, #main-content {
 // Main Footer
 
 #main-footer {
-    grid-area: main-footer;
     background: #333;
     color: #eee;
     display: flex;
     flex-direction: column;
     align-items: space-around;
+    grid-area: main-footer;
     
     #mf-img {
         
         img {
-            width: 100vw;
-            min-height: 10vh;
             border-radius: 0;
+            min-height: 10vh;
+            width: 100vw;
         }
     }
     
@@ -357,6 +357,7 @@ aside, #main-content {
 // Sub Footer
 
 #sub-footer {
+    background: #ccc;
     grid-area: sub-footer;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
@@ -365,13 +366,12 @@ aside, #main-content {
         'sf-nav sf-nav sf-nav';
     justify-items: center;
     padding: 2rem 0;
-    background: #ccc;
     
     #about {
-        grid-area: about;
         display: flex;
         flex-direction: column;
         align-items: center;
+        grid-area: about;
         
         p {
             padding: 0.25rem 0;
@@ -380,10 +380,10 @@ aside, #main-content {
     }
     
     .form-wrapper {
-        grid-area: form-wrapper;
-        padding: 1rem 3rem;
         display: flex;
         flex-direction: column;
+        padding: 1rem 3rem;
+        grid-area: form-wrapper;
         
         h5 {
             font-size: 1.5rem;
@@ -407,12 +407,12 @@ aside, #main-content {
             }
             
             a {
-                text-align: center;
+                border: 0.0625rem solid black;
+                border-radius: 0.3rem;
                 background: #fff;
                 font-size: 1rem;
                 padding: 0.5rem 0;
-                border: 0.0625rem solid black;
-                border-radius: 0.3rem;
+                text-align: center;
                 
                 &:hover {
                     background: #333;
