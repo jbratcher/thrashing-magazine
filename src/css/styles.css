@@ -33,6 +33,7 @@ aside li span, aside li p, aside li a, section li span, section li p, section li
   font-size: 1.25rem; }
 
 header {
+  background: linear-gradient(135deg, white 60%, #f5f9f0 100%);
   border-bottom: 0.0625rem solid #000;
   display: grid;
   grid-area: header;
@@ -98,7 +99,8 @@ header {
           padding-bottom: 3rem; }
         header #nav-mobile ul li:not(:first-of-type) a {
           color: #222;
-          font-size: 2.5rem; }
+          font-size: 1.5rem;
+          letter-spacing: 0.25rem; }
     header #nav-mobile #nav-close {
       font-size: 1.5rem;
       position: absolute;
@@ -145,7 +147,8 @@ aside, #main-content {
   align-items: center;
   padding: 1rem; }
   aside h2, aside h3, #main-content h2, #main-content h3 {
-    font-size: 2.33rem; }
+    font-size: 2.33rem;
+    text-align: center; }
   aside ul, #main-content ul {
     flex-direction: column;
     align-items: center;

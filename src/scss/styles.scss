@@ -61,6 +61,7 @@ aside li, section li {
 // Header
 
 header {
+    background: linear-gradient(135deg, rgb(255,255,255) 60%,rgb(245,249,240) 100%);
     border-bottom: 0.0625rem solid #000;
     display: grid;
     grid-area: header;
@@ -165,7 +166,8 @@ header {
                 
                 &:not(:first-of-type) a {
                     color: #222;
-                    font-size: 2.5rem;
+                    font-size: 1.5rem;
+                    letter-spacing: 0.25rem;
                 }   
                 
             }
@@ -240,6 +242,7 @@ aside, #main-content {
 
     h2, h3 {
         font-size: 2.33rem;
+        text-align: center;
     }
 
     ul {
