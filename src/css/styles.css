@@ -35,7 +35,7 @@ aside li span, aside li p, aside li a, section li span, section li p, section li
   font-size: 1.25rem; }
 
 header {
-  background: linear-gradient(135deg, white 0%, #e5e5e5);
+  background: linear-gradient(135deg, white 0%, #efefef);
   border-bottom: 0.0625rem solid #000;
   display: grid;
   grid-area: header;
