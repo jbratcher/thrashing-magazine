@@ -1,7 +1,6 @@
 // Require dependencies
 
 const gulp          = require('gulp');
-const pump          = require('pump');
 const browserSync   = require('browser-sync').create();
 const sass          = require('gulp-sass');
 const useref        = require('gulp-useref');  // replace unmodded files with modded files
@@ -12,6 +11,7 @@ const imagemin      = require('gulp-imagemin');  // img optimization
 const cache         = require('gulp-cache');
 const autoprefixer  = require('gulp-autoprefixer');
 const babel         = require('gulp-babel');  // compile js to es2015
+const ts            = require('gulp-typescript');
 const del           = require('del');
 
 // Move vendor files from node modules to src folders
@@ -34,6 +34,17 @@ gulp.task('sass', () =>
       .pipe(gulp.dest("src/css"))
       .pipe(browserSync.stream())
 );
+
+// Complie typescript
+
+gulp.task("tsc", () => {
+  var tsResult = gulp.src("src/ts/*.ts")
+      .pipe(ts({
+            noImplicitAny: false
+      }));
+  return tsResult.js.pipe(gulp.dest("src/js"));
+});
+
 
 // Add vendor prefixes to src CSS and move to dist
 
@@ -74,8 +85,10 @@ gulp.task('browserSync', gulp.parallel('sass', () => {
       port: 8082     // 8082 is for Cloud 9 workspaces
 }),
     gulp.watch("src/scss/*.scss", gulp.parallel('sass')),
+    gulp.watch('src/ts/*.ts', gulp.parallel('tsc')),
+    gulp.watch("src/ts/*.ts").on('change', browserSync.reload),
     gulp.watch("*.html").on('change', browserSync.reload),
-    gulp.watch("src/js/*.js").on('change', browserSync.reload);
+    gulp.watch("src/js/*.js").on('change', browserSync.reload),
     gulp.watch("src/img/*").on('change', browserSync.reload);
 }));
 
@@ -95,7 +108,7 @@ gulp.task('useref', () =>
 // Move src files to dist
 
 gulp.task('build:dist', () =>
-    gulp.src([ "index.html", "src/**", "!src/{scss,scss/*}"])
+    gulp.src([ "index.html", "src/**", "!src/{scss,scss/*}", "!src/{ts,ts/*}"])
         .pipe(gulp.dest("dist"))
 );
 
@@ -103,10 +116,10 @@ gulp.task('clean:dist', () => del('dist'));
 
 // Remove unminified files
 
-gulp.task('clean:files', () => del(['dist/css/styles.css', 'dist/css/vendor/', 'dist/js/main.js', 'dist/js/index.js']));
+gulp.task('clean:files', () => del(['dist/css/styles.css', 'dist/css/vendor/', 'dist/js/*', "!dist/js/main.min.js", "!dist/js/{vendor, vendor/*}"]));
 
 // Gulp default tasks
 
-gulp.task('default', gulp.parallel('sass', 'fonts', 'fa', 'img', 'browserSync'));
+gulp.task('default', gulp.parallel('sass', 'tsc', 'fonts', 'fa', 'img', 'browserSync'));
 
-gulp.task('build', gulp.series('clean:dist', 'build:dist', 'sass', 'img', 'autoprefix', 'compilejs', 'useref', 'clean:files'));
+gulp.task('build', gulp.series('clean:dist', 'build:dist', 'sass', 'tsc', 'img', 'autoprefix', 'compilejs', 'useref', 'clean:files'));
